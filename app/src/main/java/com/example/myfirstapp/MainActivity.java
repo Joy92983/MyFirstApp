@@ -1,17 +1,14 @@
 package com.example.myfirstapp;
-//test git
+
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Method to add two numbers
+    // Method to add two numbers
     public int addNumbers(int a, int b){
         return a + b;
     }
@@ -22,27 +19,30 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-    // Displaying Hello World message
-        Log.d("MyTag", "Hello, World!");
+        TextView textView = findViewById(R.id.textViewOutput);
 
-         //Variables and Control Flow
+        // Display custom message instead of using Log only
+        String output = "";
+
         String name = "Mary";
         int age = 21;
 
         if (age < 18) {
-            Log.d("MyTag", name + " is a minor.");
+            output += name + " is a minor.\n";
         } else {
-            Log.d("MyTag", name + " is an adult.");
+            output += name + " is an adult.\n";
         }
 
-        //Array Example
+        // Array Example
         int[] numbers = {1, 2, 3, 4, 5};
         for (int num : numbers ) {
-            Log.d("MyTag", "Number: " + num);
+            output += "Number: " + num + "\n";
         }
 
         // Method Usage
         int result = addNumbers(3, 5);
-        Log.d("MyTag", "sum: " + result);
+        output += "Sum: " + result;
+
+        textView.setText(output);
     }
 }
